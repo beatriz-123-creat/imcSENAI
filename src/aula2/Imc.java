@@ -16,24 +16,27 @@ public class Imc {
         double imc;
 
         imc= peso / (altura * altura);
+        String classificacao = "";
 
         System.out.println(imc);
 
-        //CÁLCULO DO IMC ABAIXO:
+        //CÁLCULO DO IMC ABAIXO/DETERMINANDO A CLASSIFICAÇÃO DO PESO DO USUÁRIO;:
         if (imc < 18.5){
-            System.out.println("Abaixo do peso");
-        }else if (imc > 18.6 && imc < 24.9){
-            System.out.println("Peso ideal! PARABÉNS!");
-        } else if (imc > 25.0 && imc < 29.9){
-            System.out.println("Levemente acima do peso");
-        } else if (imc > 30.0 && imc < 34.0 ){
-            System.out.println("Obesidade Grau 1");
-        } else if (imc > 35.0 && imc < 39.9){
-            System.out.println("Obesidade Grau 2 (SEVERA)");
+            classificacao = "Abaixo do peso.";
+        }else if (imc > 18.6 && imc < 25.0){
+            classificacao = "Peso ideal! PARABÉNS!";
+        } else if (imc > 25.0 && imc < 30.0){
+            classificacao = "Levemente acima do peso";
+        } else if (imc > 30.0 && imc < 35.0){
+            classificacao = "Obesidade Grau 1";
+        } else if (imc > 35.0 && imc < 40.0){
+            classificacao = "Obesidade Grau 2 (SEVERA)";
         } else{
-            System.out.println("Acima do peso! OBESIDADE MÓRBIDA");
+            classificacao = "Acima do peso! OBESIDADE MÓRBIDA";
         }
-
+        //MENSAGEM PARA O USUÁRIO;
+        String mensagem = String.format("O resultado do imc foi: %.2f. A sua classificação é: %s.", imc, classificacao);
+        System.out.println(mensagem);
     }
 
 }
